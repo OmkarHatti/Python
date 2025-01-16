@@ -11,7 +11,7 @@ def view_all(path):
             print(f"{i}. {name} : {num}")
      
 def View_by_name_char(name,path):
-    print("\nName Contact\n")
+    print("\nName Contact")
     with open(path,'r') as file:
             lines=file.readlines()
             for line in lines:
@@ -36,9 +36,10 @@ def delete(name,path):
     with open(path,'r') as file:
         lines=file.readlines()
     with open(path,'w') as file:
-        for line in lines:
-            if not line.startswith(name):
-                file.write(line)
+        for line1 in lines:
+            d_name= line1.strip().split(',')[0]
+            if d_name!=name:
+                file.write(line1)
             
         
         
