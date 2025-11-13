@@ -1,3 +1,6 @@
+''' INITIALLY ADD TEXT FILE PATH WHERE YOU WANT TO STORE CONTACT DETAILS'''
+
+
 def add(name,contact,path):
     with open(path,'a',) as file:
             file.write(f"{name},{contact}\n")
