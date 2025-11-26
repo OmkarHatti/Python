@@ -1,36 +1,45 @@
-text = 'mrttaqrhknsw ih puggrur'
-custom_key = 'python'
-
-def vigenere(message, key, direction=1):
-    key_index = 0
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    final_message = ''
-
+def ciper(message,key,direction=1):
+    key_index=0
+    alphabet='abcdefghijklmnopqrstuvwxyz'
+    final_message=''
     for char in message.lower():
-
-        # Append any non-letter character to the message
         if not char.isalpha():
-            final_message += char
-        else:        
-            # Find the right key character to encode/decode
-            key_char = key[key_index % len(key)]
-            key_index += 1
+            final_message+=char
+        else:
+            key_char=key[key_index%len(key)]
+            key_index+=1
 
-            # Define the offset and the encrypted/decrypted letter
-            offset = alphabet.index(key_char)
-            index = alphabet.find(char)
-            new_index = (index + offset*direction) % len(alphabet)
-            final_message += alphabet[new_index]
-    
+            offset=alphabet.find(key_char)
+            index=alphabet.find(char)
+
+            new_index=(index+offset*direction)%len(alphabet)
+            final_message+=alphabet[new_index]
     return final_message
 
-def encrypt(message, key):
-    return vigenere(message, key)
-    
-def decrypt(message, key):
-    return vigenere(message, key, -1)
+def encrypt(message,key):
+    return ciper(message,key)
 
-print(f'\nEncrypted text: {text}')
-print(f'Key: {custom_key}')
-decryption = decrypt(text, custom_key)
-print(f'\nDecrypted text: {decryption}\n')
+def decrypt(message,key):
+    return ciper(message,key,-1)
+
+while True:
+    print("1.Encryption")
+    print("2.Decryption")
+    print("3.Exit")
+    x=int(input("Enter Your Choice:"))
+    match x:
+        case 1:
+            text=input("Enter message You Want To Encrypt:")
+            custom_key=input("Enter Key Using Which Yo Want To Encrypt:")
+
+            encryption=encrypt(text,custom_key)
+            print(f"Your messege:{text}\nEncrypted text:{encryption}\nkey:{custom_key} (Note:-USe This key for decrypt)")
+            continue
+        case 2:
+            dtext=input("Enter encrypted text:")
+            key=input("Enter Key  To Decrypt:")
+            decryption=decrypt(dtext,key)
+            print(f"Your decrypted text:{decryption}")
+        case _:
+            print("--------------------Program Exits-------------------")
+            break
