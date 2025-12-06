@@ -2,6 +2,12 @@ def Valid_Card_Number(Card_num):
     reverse_card_Num=Card_num[::-1]
     sum_of_odd_digits=0
 
+    if not Card_num.isdigit():
+        return False
+    
+    if len(Card_num) < 13 or len(Card_num) > 19:
+        return False
+    
     odd_digits=reverse_card_Num[::2]
     for digit in odd_digits:
         sum_of_odd_digits+=int(digit)
@@ -13,7 +19,7 @@ def Valid_Card_Number(Card_num):
         if number>=10:
             number=(number//10)+(number%10)
         sum_of_even_digit+=number
-        
+
     return (sum_of_odd_digits+sum_of_even_digit)%10==0
 
 
@@ -23,9 +29,9 @@ def main():
     card_transform=card_number.translate(transform)
 
     if Valid_Card_Number(card_transform):
-        print("Card Is Valid")
+        print("✅ Card is Valid")
     else:
-        print("Card Is Invalid!")
+        print("❌ Card is Invalid")
 
 if __name__=="__main__":
     main()
