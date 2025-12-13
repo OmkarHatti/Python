@@ -26,6 +26,61 @@ while(True):
             print("You Quit")
             break
         com=random.choice(choice)
+        if n==1:
+            print(""" Your Choice 
+                    _______
+                ---'   ____)
+                      (_____)
+                      (_____)
+                      (____)
+                ---.__(___)
+                """)
+        elif n==2:
+            print(""" Your Choice 
+                     _______
+                ---'    ____)____
+                           ______)
+                          _______)
+                         _______)
+                ---.__________)
+                """)
+        elif n==3:
+            print(""" Your Choice 
+                _______
+            ---'   ____)____
+                      ______)
+                   __________)
+                  (____)
+            ---.__(___)
+            """)
+
+        if com==1:
+            print(""" computer Choice 
+                    _______
+                ---'   ____)
+                      (_____)
+                      (_____)
+                      (____)
+                ---.__(___)
+                """)
+        elif com==2:
+            print(""" computer Choice  
+                     _______
+                ---'    ____)____
+                           ______)
+                          _______)
+                         _______)
+                ---.__________)
+                """)
+        elif com==3:
+            print(""" computer Choice 
+                _______
+            ---'   ____)____
+                      ______)
+                   __________)
+                  (____)
+            ---.__(___)
+            """)
         print(f"User: {user} Computer: {com}")
         W_c(user,com)
     except :
