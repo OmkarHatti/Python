@@ -1,13 +1,13 @@
-def Valid_Card_Number(Card_num):    
-    reverse_card_Num=Card_num[::-1]
-    sum_of_odd_digits=0
-
+def Valid_Card_Number(Card_num):  
     if not Card_num.isdigit():
         return False
     
     if len(Card_num) < 13 or len(Card_num) > 19:
         return False
-    
+
+    reverse_card_Num=Card_num[::-1]
+    sum_of_odd_digits=0
+
     odd_digits=reverse_card_Num[::2]
     for digit in odd_digits:
         sum_of_odd_digits+=int(digit)
